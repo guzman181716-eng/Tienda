@@ -416,7 +416,7 @@ main{padding-bottom:130px;min-height:60vh}
       </div>
       <ul class="stats">
         <li><b id="statCount">60+</b><span>Productos</span></li>
-        <li><b>6</b><span>Categorías</span></li>
+        <li><b>8</b><span>Categorías</span></li>
         <li><b>100%</b><span>Originales</span></li>
       </ul>
     </div>
@@ -490,7 +490,7 @@ main{padding-bottom:130px;min-height:60vh}
 <section class="view" id="view-categorias">
   <div class="wrap">
     <div class="shead" style="margin-top:30px"><div><p class="skr">카테고리</p><h2>Categorías</h2></div></div>
-    <p class="count-lbl" style="margin-top:-8px">Seis colecciones, un solo destino: el sabor de Corea.</p>
+    <p class="count-lbl" style="margin-top:-8px">Ocho colecciones, un solo destino: el sabor de Corea.</p>
     <div class="catgrid-p" id="catGrid"></div>
   </div>
 </section>
@@ -608,7 +608,7 @@ const CATEGORIES = [
 const P = (id,name,size,price,cat,tags,featured,img,emoji,desc)=>({id,name,size,price,cat,tags,featured,img,emoji,desc});
 const PRODUCTS = [
   // 🍜 SALADOS
-  P('s1','Ramen de pollo picante (Big Bowl)','Buldak · 108 g',80,'salados',['picante'],false,'https://i.ibb.co/zHmgxZHZ/IMG-7186.jpg','🍜','El clásico Buldak Hot Chicken en formato Big Bowl 🔥 Picante intenso y adictivo.'),
+  P('s1','Ramen de pollo picante (Big Bowl)','Buldak · 108 g',80,'salados',['picante','popular'],false,'https://i.ibb.co/zHmgxZHZ/IMG-7186.jpg','🍜','El clásico Buldak Hot Chicken en formato Big Bowl 🔥 Picante intenso y adictivo.'),
   P('s2','Ramen queso (vaso 70 g)','Buldak Cheese',60,'salados',['picante','popular'],true,'https://i.ibb.co/bgTrVQCH/IMG-7189.jpg','🧀','Buldak Cheese: picante cremoso con queso fundido 🧀 Favorito de todos.'),
   P('s3','Ramen carbonara (vaso grande 105 g)','Buldak Carbo',80,'salados',[],false,'https://i.ibb.co/j9NVbPss/IMG-7187.jpg','🍜','Buldak Carbo grande: cremoso, dulcecito y con su toque picante 💗'),
   P('s4','Ramen carbonara (vaso 80 g)','Buldak Carbo',60,'salados',[],false,'https://i.ibb.co/jPXmpF1S/IMG-7190.jpg','🍜','La versión clásica del Buldak Carbo 🍝 Cremoso y reconfortante.'),
@@ -619,17 +619,17 @@ const PRODUCTS = [
   P('s9','Yopokki sabor kimchi (115 g)','Yopokki',80,'salados',['picante'],false,'https://i.ibb.co/d0WChT2Q/IMG-7194.jpg','🥬','Tteokbokki con el sabor auténtico del kimchi 🥬 Picantito y delicioso.'),
   P('s10','Ramen carbonara en bolsa (130 g)','Buldak Carbo',60,'salados',[],false,'https://i.ibb.co/V0tQHLDh/IMG-7201.jpg','🍜','Buldak Carbo en bolsa para sartén 🍳 Como en Corea.'),
   P('s11','Ramen carbonara extra queso (Cream Carbonara)','Buldak · 140 g',60,'salados',[],false,'https://i.ibb.co/7BBtqbn/IMG-7202.jpg','🧀','Buldak Cream Carbonara: extra cremoso, extra queso 🧀'),
-  P('s12','Ramen Jin (Big Bowl)','Ottogi Jin Ramen · 110 g',80,'salados',['nuevo'],true,IMG.jin,'🍜','Jin Ramen de Ottogi en tazón grande 🍜 Caldo suave y sabroso, ideal sin picante.'),
-  P('s13','Yopokki sabor Jjajang','Yopokki · 120 g',80,'salados',['nuevo'],false,'https://i.ibb.co/b5LhLg9r/yopokki-jjajang.jpg','🍥','Tteokbokki con salsa negra jjajang 🖤 Sabor auténtico coreano.'),
-  P('s14','Yopokki sabor queso','Yopokki · 120 g',80,'salados',['nuevo'],false,'https://i.ibb.co/RkjnyFZ6/yopokki-queso.jpg','🧀','Tteokbokki cremoso con queso derretido 🧀 Irresistible.'),
-  P('s15','Ramen Ottogi picante (Yeul Ramen)','Ottogi · 120 g',60,'salados',['picante','nuevo'],false,IMG.ottogi_picante,'🌶️','Yeul Ramen de Ottogi, súper picante 🔥 Caldo rojo intenso. Solo para valientes.'),
-  P('s17','Ramen sabor habanero','Extra picante · 120 g',80,'salados',['picante','nuevo'],false,'https://i.ibb.co/3LKgBvn/ramen-habanero.jpg','🌶️','Ramen con habanero 🌶️ Para amantes del picante extremo.'),
-  P('s18','Ramen Ottogi sabor res','Ottogi · 120 g',60,'salados',['picante','nuevo'],false,IMG.res,'🥩','Tallarines Ottogi con caldo sabor a res 🥩 Reconfortante y fortificado con calcio.'),
-  P('s19','Ramen Ottogi sabor camarón','Ottogi · 120 g',60,'salados',['picante','nuevo'],false,IMG.camaron,'🦐','Tallarines Ottogi sabor camarón 🦐 Picante ligero y sabroso.'),
-  P('s20','Ramen Ottogi sabor mariscos','Ottogi · 120 g',60,'salados',['picante','nuevo'],false,IMG.mariscos,'🦑','Caldo con sabor a mariscos y vegetales 🦑 Lleno de sabor.'),
-  P('s21','Ramen sabor langosta','Paldo Lobster Ramen · 120 g',60,'salados',['nuevo'],false,IMG.langosta,'🦞','El famoso Lobster Ramen de Paldo 🦞 Caldo con sabor a langosta.'),
-  P('s22','Buldak Tteokbokki','Buldak Topokki',80,'salados',['picante','nuevo'],false,IMG.n_buldak_topokki,'🔥','Tteokbokki Buldak 🔥 El picante del reto en formato de arroz. Nivel extremo.'),
-  P('s23','Yopokki sabor Bulgogi','Yopokki · 120 g',80,'salados',['nuevo'],false,IMG.n_yopokki_bulgogi,'🥩','Tteokbokki con salsa bulgogi 🥩 Dulce-salada, sin picante.'),
+  P('s12','Ramen Jin (Big Bowl)','Ottogi Jin Ramen · 110 g',80,'salados',['popular'],true,IMG.jin,'🍜','Jin Ramen de Ottogi en tazón grande 🍜 Caldo suave y sabroso, ideal sin picante.'),
+  P('s13','Yopokki sabor Jjajang','Yopokki · 120 g',80,'salados',[],false,'https://i.ibb.co/b5LhLg9r/yopokki-jjajang.jpg','🍥','Tteokbokki con salsa negra jjajang 🖤 Sabor auténtico coreano.'),
+  P('s14','Yopokki sabor queso','Yopokki · 120 g',80,'salados',[],false,'https://i.ibb.co/RkjnyFZ6/yopokki-queso.jpg','🧀','Tteokbokki cremoso con queso derretido 🧀 Irresistible.'),
+  P('s15','Ramen Ottogi picante (Yeul Ramen)','Ottogi · 120 g',60,'salados',['picante'],false,IMG.ottogi_picante,'🌶️','Yeul Ramen de Ottogi, súper picante 🔥 Caldo rojo intenso. Solo para valientes.'),
+  P('s17','Ramen sabor habanero','Extra picante · 120 g',80,'salados',['picante'],false,'https://i.ibb.co/3LKgBvn/ramen-habanero.jpg','🌶️','Ramen con habanero 🌶️ Para amantes del picante extremo.'),
+  P('s18','Ramen Ottogi sabor res','Ottogi · 120 g',60,'salados',['picante'],false,IMG.res,'🥩','Tallarines Ottogi con caldo sabor a res 🥩 Reconfortante y fortificado con calcio.'),
+  P('s19','Ramen Ottogi sabor camarón','Ottogi · 120 g',60,'salados',['picante'],false,IMG.camaron,'🦐','Tallarines Ottogi sabor camarón 🦐 Picante ligero y sabroso.'),
+  P('s20','Ramen Ottogi sabor mariscos','Ottogi · 120 g',60,'salados',['picante'],false,IMG.mariscos,'🦑','Caldo con sabor a mariscos y vegetales 🦑 Lleno de sabor.'),
+  P('s21','Ramen sabor langosta','Paldo Lobster Ramen · 120 g',60,'salados',[],false,IMG.langosta,'🦞','El famoso Lobster Ramen de Paldo 🦞 Caldo con sabor a langosta.'),
+  P('s22','Buldak Tteokbokki','Buldak Topokki',80,'salados',['picante'],false,IMG.n_buldak_topokki,'🔥','Tteokbokki Buldak 🔥 El picante del reto en formato de arroz. Nivel extremo.'),
+  P('s23','Yopokki sabor Bulgogi','Yopokki · 120 g',80,'salados',[],false,IMG.n_yopokki_bulgogi,'🥩','Tteokbokki con salsa bulgogi 🥩 Dulce-salada, sin picante.'),
   // ✦ NUEVOS — SALADOS
   P('n6','Buldak Carbonara Topokki','Samyang · Vaso',90,'salados',['nuevo'],false,'img/n_buldak_carbonara_topokki.jpg','🍥','Tteokbokki Buldak sabor carbonara en vaso 🍥 Cremoso, con el toque Samyang.'),
   P('n9','Yopokki sabor bulgogi','Yopokki · 118 g',80,'salados',['nuevo'],false,IMG.n_yopokki_bulgogi,'🥩','Tteokbokki con salsa bulgogi 🥩 Dulce-salada, listo en minutos.'),
@@ -641,26 +641,26 @@ const PRODUCTS = [
   P('b1','Malteada Binggrae (200 ml)','Fresa 🍓, melón 🍈 o plátano 🍌',55,'bebidas',['popular'],true,'https://i.ibb.co/YvgwKMn/IMG-7195.jpg','🥤','La leche saborizada favorita de Corea 🇰🇷 Elige tu sabor en la nota.'),
   P('b2','Malteada de taro Binggrae (200 ml)','Binggrae UHT',55,'bebidas',[],false,'https://i.ibb.co/chRxYFYn/IMG-7196.jpg','🍠','Cremosa leche sabor taro 💜 Dulce, suave y diferente.'),
   P('b3','Milkis (250 ml)','Original, banana 🍌, melón 🍈, fresa 🍓, yogurt',55,'bebidas',['popular'],true,IMG.milkis_sabores,'🥛','Refresco de leche con yogurt 🫧 Burbujeante, cremoso y único. Elige tu sabor en la nota.'),
-  P('b5','Mogu Mogu con nata de coco (320 ml)','Lichi, fresa, piña, mango, durazno y más',60,'bebidas',[],false,'https://i.ibb.co/NdHgZgNm/IMG-7199.jpg','🧃','Jugo con nata de coco y trocitos reales 🍓 ¡Se mastica y se bebe!'),
+  P('b5','Mogu Mogu con nata de coco (320 ml)','Lichi, fresa, piña, mango, durazno y más',60,'bebidas',['popular'],false,'https://i.ibb.co/NdHgZgNm/IMG-7199.jpg','🧃','Jugo con nata de coco y trocitos reales 🍓 ¡Se mastica y se bebe!'),
   P('b6','Soju de sabores (360 ml)','Uva 🍇, toronja, durazno, blueberry, yuja',130,'bebidas',['mas18'],false,IMG.soju,'🍶','La bebida clásica de Corea 🍶 🔞 Solo para mayores de edad.'),
   P('b7','Té de sandía (Cantabile · 230 ml)','Cantabile Ade',55,'bebidas',[],false,'https://i.ibb.co/mVPCYrYY/IMG-7211.jpg','🍉','Ade de sandía súper refrescante 🍉 Dulce y fresquito.'),
   P('b8','Té de limón azul (Cantabile · 230 ml)','Cantabile Blue Lemon Ade',55,'bebidas',[],false,'https://i.ibb.co/rRJvRG6d/IMG-7210.jpg','🍋','Blue Lemon Ade 💙 Cítrico, dulce y hermoso.'),
   P('b9','Té de uva verde (Cantabile · 230 ml)','Cantabile Green Grape',55,'bebidas',[],false,'https://i.ibb.co/mrxPn4Pv/IMG-7212.jpg','🍇','Green Grape Ade 🍇 El sabor de las uvas verdes coreanas.'),
-  P('b10','Ramune','Naranja 🍊, melón 🍈, fresa 🍓, yogurt, lichi',70,'bebidas',['nuevo'],true,'img/ramune.jpg','🍾','La bebida con canica 🔵 Refrescante y divertida. Elige tu sabor en la nota.'),
-  P('b11','Malteada de café','Binggrae · 200 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/NdYshcWV/malteada-cafe.jpg','☕','Malteada Binggrae sabor café ☕ Para los amantes del café.'),
-  P('b12','Té de durazno','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/MDWxz58J/te-durazno.jpg','🍑','Té helado de durazno 🍑 Dulce y refrescante.'),
-  P('b13','Té de café sabor vainilla','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/pr3SBs9B/te-cafe-vainilla.jpg','☕','Té de café con toque de vainilla ☕ Suave y aromático.'),
-  P('b14','Té sabor fresa','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/3mz8FRFW/te-fresa.jpg','🍓','Té helado de fresa 🍓 Dulce y rosadito.'),
-  P('b15','Jugo de uva verde con nata de coco','Con coco real',60,'bebidas',['nuevo'],false,'https://i.ibb.co/HLq1Z1nj/jugo-uva-coco.jpg','🥥','Jugo de uva verde con trocitos de nata de coco 🥥 Único.'),
-  P('b16','Jugo de Lychee','Natural',60,'bebidas',['nuevo'],false,'https://i.ibb.co/67jLqBsb/jugo-lychee.jpg','🍈','Jugo de lychee puro 🍈 Dulce y exótico.'),
-  P('b17','Bubble MilkTea de fresa','Con tapioca',60,'bebidas',['nuevo'],true,'https://i.ibb.co/S4kxc90F/bubble-fresa.jpg','🧋','Bubble tea de fresa con perlas de tapioca 🍓 Cremoso y delicioso.'),
-  P('b18','Bubble MilkTea de café','Con tapioca',60,'bebidas',['nuevo'],false,'https://i.ibb.co/HDnF2QH6/bubble-cafe.jpg','🧋','Bubble tea de café con perlas de tapioca ☕ Intenso y cremoso.'),
-  P('b19','Jugo de durazno','Natural',55,'bebidas',['nuevo'],false,'https://i.ibb.co/bRbSZCxV/jugo-durazno.jpg','🍑','Jugo de durazno natural 🍑 Dulce y refrescante.'),
-  P('b20','Jugo de mango','Natural',60,'bebidas',['nuevo'],false,'https://i.ibb.co/ZRkYg82k/jugo-mango.jpg','🥭','Jugo de mango tropical 🥭 Dulce y exótico.'),
-  P('b21','Té de moras','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/PvyLWrSM/te-moras.jpg','🫐','Té helado de moras 🫐 Antioxidante y delicioso.'),
+  P('b10','Ramune','Naranja 🍊, melón 🍈, fresa 🍓, yogurt, lichi',70,'bebidas',['popular'],true,'img/ramune.jpg','🍾','La bebida con canica 🔵 Refrescante y divertida. Elige tu sabor en la nota.'),
+  P('b11','Malteada de café','Binggrae · 200 ml',55,'bebidas',[],false,'https://i.ibb.co/NdYshcWV/malteada-cafe.jpg','☕','Malteada Binggrae sabor café ☕ Para los amantes del café.'),
+  P('b12','Té de durazno','Cantabile · 230 ml',55,'bebidas',[],false,'https://i.ibb.co/MDWxz58J/te-durazno.jpg','🍑','Té helado de durazno 🍑 Dulce y refrescante.'),
+  P('b13','Té de café sabor vainilla','Cantabile · 230 ml',55,'bebidas',[],false,'https://i.ibb.co/pr3SBs9B/te-cafe-vainilla.jpg','☕','Té de café con toque de vainilla ☕ Suave y aromático.'),
+  P('b14','Té sabor fresa','Cantabile · 230 ml',55,'bebidas',[],false,'https://i.ibb.co/3mz8FRFW/te-fresa.jpg','🍓','Té helado de fresa 🍓 Dulce y rosadito.'),
+  P('b15','Jugo de uva verde con nata de coco','Con coco real',60,'bebidas',[],false,'https://i.ibb.co/HLq1Z1nj/jugo-uva-coco.jpg','🥥','Jugo de uva verde con trocitos de nata de coco 🥥 Único.'),
+  P('b16','Jugo de Lychee','Natural',60,'bebidas',[],false,'https://i.ibb.co/67jLqBsb/jugo-lychee.jpg','🍈','Jugo de lychee puro 🍈 Dulce y exótico.'),
+  P('b17','Bubble MilkTea de fresa','Con tapioca',60,'bebidas',['popular'],true,'https://i.ibb.co/S4kxc90F/bubble-fresa.jpg','🧋','Bubble tea de fresa con perlas de tapioca 🍓 Cremoso y delicioso.'),
+  P('b18','Bubble MilkTea de café','Con tapioca',60,'bebidas',[],false,'https://i.ibb.co/HDnF2QH6/bubble-cafe.jpg','🧋','Bubble tea de café con perlas de tapioca ☕ Intenso y cremoso.'),
+  P('b19','Jugo de durazno','Natural',55,'bebidas',[],false,'https://i.ibb.co/bRbSZCxV/jugo-durazno.jpg','🍑','Jugo de durazno natural 🍑 Dulce y refrescante.'),
+  P('b20','Jugo de mango','Natural',60,'bebidas',[],false,'https://i.ibb.co/ZRkYg82k/jugo-mango.jpg','🥭','Jugo de mango tropical 🥭 Dulce y exótico.'),
+  P('b21','Té de moras','Cantabile · 230 ml',55,'bebidas',[],false,'https://i.ibb.co/PvyLWrSM/te-moras.jpg','🫐','Té helado de moras 🫐 Antioxidante y delicioso.'),
   P('b22','Café riquísimo con 20 sobres','Caja · 20 sobres',250,'bebidas',['popular'],true,'https://i.ibb.co/zTwx9JTN/cafe-20-sobres-1.jpg','☕','Café coreano en sobres ☕ 20 unidades para disfrutar cuando quieras.'),
-  P('b23','Té sabor café americano','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/t00QJym/te-cafe-americano.jpg','☕','Té con sabor a café americano ☕ Suave y aromático.'),
-  P('b24','Café premium 20 sobres','Caja · 20 sobres',250,'bebidas',['nuevo'],false,'https://i.ibb.co/1GdxP4Jp/cafe-20-sobres-2.jpg','☕','Café coreano premium en sobres ☕ 20 unidades.'),
+  P('b23','Té sabor café americano','Cantabile · 230 ml',55,'bebidas',[],false,'https://i.ibb.co/t00QJym/te-cafe-americano.jpg','☕','Té con sabor a café americano ☕ Suave y aromático.'),
+  P('b24','Café premium 20 sobres','Caja · 20 sobres',250,'bebidas',[],false,'https://i.ibb.co/1GdxP4Jp/cafe-20-sobres-2.jpg','☕','Café coreano premium en sobres ☕ 20 unidades.'),
   // ✦ NUEVOS — BEBIDAS
   P('n2','Bublee MilkTea de azúcar','Brown Sugar · 350 g',60,'bebidas',['nuevo'],false,IMG.n_bub_azucar,'🧋','Milk tea con azúcar morena y perlas de tapioca 🧋 Dulce y cremoso.'),
   P('n3','Bublee MilkTea de lichi y granada','Lady Boba · 320 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_lichi,'🧋','Milk tea de lichi con granada 🍈 Frutal y refrescante, con perlas.'),
@@ -675,29 +675,29 @@ const PRODUCTS = [
   P('n16','Té de fresa','Cantabile Strawberry Ade · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/3mz8FRFW/te-fresa.jpg','🍓','Strawberry Ade 🍓 Dulce y rosadito.'),
   P('n20','Bublee MilkTea de Taro','Lady Boba · 315 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_taro_lady,'💜','Milk tea de taro versión Lady Boba 💜 Con perlas de tapioca.'),
   // 🍪 GALLETAS
-  P('g1','Bub rellena de chocolate azul','Sabor azúcar · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_azucar,'🍪','Galleta coreana con chocolate azul azucarado 💙 Viral en redes.'),
-  P('g2','Bub sabor lichi','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_lichi,'🍪','Galleta rellena de lichi 🍈 Dulce y tropical.'),
-  P('g3','Bub sabor pera','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_pera,'🍪','Galleta rellena de pera 🍐 Suave y jugosa.'),
-  P('g4','Bub clásica','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_clasica,'🍪','La Bub original 🍫 Chocolate cremoso clásico.'),
-  P('g5','Bub sabor fresa','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_fresa,'🍪','Galleta rellena de fresa 🍓 Rosadita y dulce.'),
-  P('g6','Bub sabor matcha','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_matcha,'🍪','Galleta rellena de matcha 🍵 Té verde auténtico.'),
-  P('g7','Bub sabor taro','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_taro,'🍪','Galleta rellena de taro 💜 Cremosa y violeta.'),
-  P('g8','Pocky de fresa','Caja · palitos cubiertos',30,'galletas',['nuevo'],false,IMG.n_pockys,'🥢','Palitos de galleta con fresa 🥢 El clásico que nunca falla.'),
+  P('g1','Bub rellena de chocolate azul','Sabor azúcar · 1 pieza',35,'galletas',[],false,IMG.n_bub_azucar,'🍪','Galleta coreana con chocolate azul azucarado 💙 Viral en redes.'),
+  P('g2','Bub sabor lichi','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_lichi,'🍪','Galleta rellena de lichi 🍈 Dulce y tropical.'),
+  P('g3','Bub sabor pera','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_pera,'🍪','Galleta rellena de pera 🍐 Suave y jugosa.'),
+  P('g4','Bub clásica','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_clasica,'🍪','La Bub original 🍫 Chocolate cremoso clásico.'),
+  P('g5','Bub sabor fresa','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_fresa,'🍪','Galleta rellena de fresa 🍓 Rosadita y dulce.'),
+  P('g6','Bub sabor matcha','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_matcha,'🍪','Galleta rellena de matcha 🍵 Té verde auténtico.'),
+  P('g7','Bub sabor taro','Rellena · 1 pieza',35,'galletas',[],false,IMG.n_bub_taro,'🍪','Galleta rellena de taro 💜 Cremosa y violeta.'),
+  P('g8','Pocky de fresa','Caja · palitos cubiertos',30,'galletas',[],false,IMG.n_pockys,'🥢','Palitos de galleta con fresa 🥢 El clásico que nunca falla.'),
   // ✦ NUEVOS — GALLETAS
   P('n1','Glico Pocky','117 g · bolsa con 9 paquetes',145,'galletas',['nuevo'],false,IMG.n_pockys,'🥢','Palitos de galleta cubiertos 🥢 Bolsa con 9 paquetes para compartir.'),
   // 🍡 MOCHIS
-  P('m1','Mochi de vainilla','1 pieza',35,'mochis',['nuevo'],true,IMG.mochi_vainilla,'🍦','Mochi suave relleno de vainilla 🍦 El favorito de la casa.'),
-  P('m2','Mochi de mango','1 pieza',35,'mochis',['nuevo'],false,IMG.n_mochi_mango,'🥭','Mochi relleno de mango 🥭 Tropical y jugoso.'),
-  P('m3','Mochi de fresa','1 pieza',35,'mochis',['nuevo'],false,IMG.fresa,'🍓','Mochi relleno de fresa 🍓 Dulce y rosadito.'),
-  P('m4','Mochi surtido','Elige sabor en la nota',35,'mochis',['nuevo'],false,IMG.mochi,'🍡','¿No te decides? Elige tu sabor en la nota del pedido 🍡'),
+  P('m1','Mochi de vainilla','1 pieza',35,'mochis',['popular'],true,IMG.mochi_vainilla,'🍦','Mochi suave relleno de vainilla 🍦 El favorito de la casa.'),
+  P('m2','Mochi de mango','1 pieza',35,'mochis',[],false,IMG.n_mochi_mango,'🥭','Mochi relleno de mango 🥭 Tropical y jugoso.'),
+  P('m3','Mochi de fresa','1 pieza',35,'mochis',[],false,IMG.fresa,'🍓','Mochi relleno de fresa 🍓 Dulce y rosadito.'),
+  P('m4','Mochi surtido','Elige sabor en la nota',35,'mochis',[],false,IMG.mochi,'🍡','¿No te decides? Elige tu sabor en la nota del pedido 🍡'),
   // ✦ NUEVOS — MOCHIS
   P('n14','Mochis de mango','Royal Family · 8 piezas · 80 g',80,'mochis',['nuevo'],false,IMG.n_mochi_mango,'🥭','Ocho mochis suaves sabor mango 🥭 Tropicales y jugosos.'),
   // 🍬 DULCES
-  P('d1','Pepero original','Caja · palitos',35,'dulces',['nuevo'],false,IMG.palitos,'🥨','Palitos de galleta con chocolate 🥨 El snack coreano icónico.'),
-  P('d2','Caramelos de coco','Bolsa',25,'dulces',['nuevo'],false,IMG.n_coconut,'🥥','Caramelos duros de coco 🥥 Dulces y aromáticos.'),
+  P('d1','Pepero original','Caja · palitos',35,'dulces',['popular'],false,IMG.palitos,'🥨','Palitos de galleta con chocolate 🥨 El snack coreano icónico.'),
+  P('d2','Caramelos de coco','Bolsa',25,'dulces',[],false,IMG.n_coconut,'🥥','Caramelos duros de coco 🥥 Dulces y aromáticos.'),
   // 🥔 PAPAS
-  P('p1','Papas sabor hamburguesa','Bolsa',45,'papas',['nuevo'],false,IMG.burger,'🍔','Botana coreana sabor hamburguesa 🍔 Salada y adictiva.'),
-  P('p2','Snack ramen taco','Bolsa',45,'papas',['nuevo'],false,IMG.n_ramen_tacos,'🌮','Botana crujiente con sabor a ramen-taco 🌮 Crujiente y picantita.')
+  P('p1','Papas sabor hamburguesa','Bolsa',45,'papas',[],false,IMG.burger,'🍔','Botana coreana sabor hamburguesa 🍔 Salada y adictiva.'),
+  P('p2','Snack ramen taco','Bolsa',45,'papas',[],false,IMG.n_ramen_tacos,'🌮','Botana crujiente con sabor a ramen-taco 🌮 Crujiente y picantita.')
 ];
 
 /* ================= ESTADO ================= */
@@ -719,6 +719,10 @@ function ALL(){
 }
 const byId = id => ALL().find(p => p.id === id);
 const catOf = id => CATEGORIES.find(c => c.id === id) || {name:'Producto', kr:'', emoji:'🛍️'};
+const collections = all => CATEGORIES.map(c=>({...c, items: all.filter(p=>p.cat===c.id)})).concat([
+  { id:'populares', emoji:'⭐', name:'Populares', kr:'인기 상품', items: all.filter(p=>p.tags.includes('popular')) },
+  { id:'nuevos',    emoji:'✨', name:'Nuevos',    kr:'신상품',   items: all.filter(p=>p.tags.includes('nuevo')) }
+]);
 const catRep = c => { const items = ALL().filter(p=>p.cat===c.id); return items.find(p=>p.img) || null; };
 
 /* ================= SABORES (derivados de los datos, sin inventar) ================= */
@@ -771,9 +775,9 @@ function toast(msg){
 /* ================= RENDER: HOME ================= */
 function renderHome(){
   const all = ALL();
-  $('#homeCats').innerHTML = CATEGORIES.map(c=>{
-    const n = all.filter(p=>p.cat===c.id).length;
-    const rep = catRep(c);
+  $('#homeCats').innerHTML = collections(all).map(c=>{
+    const n = c.items.length;
+    const rep = c.items.find(p=>p.img) || null;
     const thumb = rep
       ? `<span class="cthumb"><img loading="lazy" src="${rep.img}" alt="" data-emoji="${c.emoji}"></span>`
       : `<span class="cthumb">${c.emoji}</span>`;
@@ -800,9 +804,9 @@ function renderHome(){
 /* ================= RENDER: CATEGORÍAS ================= */
 function renderCats(){
   const all = ALL();
-  $('#catGrid').innerHTML = CATEGORIES.map(c=>{
-    const items = all.filter(p=>p.cat===c.id);
-    const rep = catRep(c);
+  $('#catGrid').innerHTML = collections(all).map(c=>{
+    const items = c.items;
+    const rep = items.find(p=>p.img) || null;
     const media = rep
       ? `<img loading="lazy" src="${rep.img}" alt="${c.name}" data-emoji="${c.emoji}">`
       : `<span class="pemoji">${c.emoji}</span>`;
