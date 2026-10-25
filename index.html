@@ -51,6 +51,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
 .logo-badge{width:42px;height:42px;border-radius:16px;background:linear-gradient(135deg,var(--pink-deep),var(--pink));color:#fff;display:grid;place-items:center;font-family:var(--fk);font-weight:900;font-size:1.2rem;box-shadow:0 6px 16px rgba(224,148,172,.4);flex:none}
 .logo b{font-family:var(--fs);font-weight:600;font-size:1.5rem;letter-spacing:-.03em;line-height:1;display:block}
 .logo small{display:block;font-size:.55rem;letter-spacing:.22em;font-weight:600;color:var(--ink2);margin-top:3px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.soundbtn{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--rose);display:grid;place-items:center;transition:.2s;box-shadow:0 3px 10px rgba(203,133,158,.1)}
+.soundbtn:hover{background:var(--pink2);border-color:var(--pink)}
+.soundbtn.off{color:var(--ink2)}
+.soundbtn .msr{font-size:1.15rem}
 .hnav{display:none;gap:24px}
 .hnav a{color:var(--ink);text-decoration:none;font-size:.73rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
 .hnav a:hover{color:var(--rose);border-color:var(--pink)}
@@ -379,7 +384,11 @@ main{padding-bottom:130px;min-height:60vh}
 <!-- HEADER -->
 <header id="topbar">
   <div class="wrap topbar-in">
-    <a class="logo" href="#/" aria-label="Tienda Moon, inicio"><img class="moon-logo" src="img/logo-moon.png" alt="Tienda Moon" /></a>
+    <div class="brand">
+      <a class="logo" href="#/" aria-label="Tienda Moon, inicio"><img class="moon-logo" src="img/logo-moon.png" alt="Tienda Moon" /></a>
+      <button class="soundbtn off" id="soundBtn" type="button" aria-label="Activar música" aria-pressed="false"><span class="msr" id="soundIcon">volume_off</span></button>
+    </div>
+    <audio id="bgm" src="audio/moon.mp3" loop preload="auto"></audio>
     <nav class="hnav">
       <a href="#/">Inicio</a><a href="#/productos">Productos</a><a href="#/categorias">Categorías</a><a href="#como">Cómo comprar</a>
     </nav>
@@ -621,6 +630,13 @@ const PRODUCTS = [
   P('s21','Ramen sabor langosta','Paldo Lobster Ramen · 120 g',60,'salados',['nuevo'],false,IMG.langosta,'🦞','El famoso Lobster Ramen de Paldo 🦞 Caldo con sabor a langosta.'),
   P('s22','Buldak Tteokbokki','Buldak Topokki',80,'salados',['picante','nuevo'],false,IMG.n_buldak_topokki,'🔥','Tteokbokki Buldak 🔥 El picante del reto en formato de arroz. Nivel extremo.'),
   P('s23','Yopokki sabor Bulgogi','Yopokki · 120 g',80,'salados',['nuevo'],false,IMG.n_yopokki_bulgogi,'🥩','Tteokbokki con salsa bulgogi 🥩 Dulce-salada, sin picante.'),
+  // ✦ NUEVOS — SALADOS
+  P('n6','Buldak Carbonara Topokki','Samyang · Vaso',90,'salados',['nuevo'],false,'img/n_buldak_carbonara_topokki.jpg','🍥','Tteokbokki Buldak sabor carbonara en vaso 🍥 Cremoso, con el toque Samyang.'),
+  P('n9','Yopokki sabor bulgogi','Yopokki · 118 g',80,'salados',['nuevo'],false,IMG.n_yopokki_bulgogi,'🥩','Tteokbokki con salsa bulgogi 🥩 Dulce-salada, listo en minutos.'),
+  P('n15','Ramen sabor tacos','Samyang Buldak · 105 g',80,'salados',['nuevo'],false,IMG.n_ramen_tacos,'🌮','Ramen Samyang Buldak sabor tacos 🌮 Una mezcla distinta y adictiva.'),
+  P('n17','Yopokki Jjajang','Yopokki · 120 g',80,'salados',['nuevo'],false,'https://i.ibb.co/b5LhLg9r/yopokki-jjajang.jpg','🍥','Tteokbokki con salsa negra jjajang 🖤 Sabor auténtico coreano.'),
+  P('n18','Buldak Topokki','Samyang · Vaso de 185 g',85,'salados',['nuevo','picante'],false,IMG.n_buldak_topokki,'🔥','Tteokbokki Buldak en vaso grande 🔥 Picante intenso de Samyang.'),
+  P('n19','Yopokki sabor pastel de arroz','Yopokki · 118 g',80,'salados',['nuevo'],false,IMG.n_yopokki_arroz,'🍥','Pastelitos de arroz estilo tteokbokki 🍥 Suaves, masticables y con mucho sabor.'),
   // 🥤 BEBIDAS
   P('b1','Malteada Binggrae (200 ml)','Fresa 🍓, melón 🍈 o plátano 🍌',55,'bebidas',['popular'],true,'https://i.ibb.co/YvgwKMn/IMG-7195.jpg','🥤','La leche saborizada favorita de Corea 🇰🇷 Elige tu sabor en la nota.'),
   P('b2','Malteada de taro Binggrae (200 ml)','Binggrae UHT',55,'bebidas',[],false,'https://i.ibb.co/chRxYFYn/IMG-7196.jpg','🍠','Cremosa leche sabor taro 💜 Dulce, suave y diferente.'),
@@ -630,7 +646,7 @@ const PRODUCTS = [
   P('b7','Té de sandía (Cantabile · 230 ml)','Cantabile Ade',55,'bebidas',[],false,'https://i.ibb.co/mVPCYrYY/IMG-7211.jpg','🍉','Ade de sandía súper refrescante 🍉 Dulce y fresquito.'),
   P('b8','Té de limón azul (Cantabile · 230 ml)','Cantabile Blue Lemon Ade',55,'bebidas',[],false,'https://i.ibb.co/rRJvRG6d/IMG-7210.jpg','🍋','Blue Lemon Ade 💙 Cítrico, dulce y hermoso.'),
   P('b9','Té de uva verde (Cantabile · 230 ml)','Cantabile Green Grape',55,'bebidas',[],false,'https://i.ibb.co/mrxPn4Pv/IMG-7212.jpg','🍇','Green Grape Ade 🍇 El sabor de las uvas verdes coreanas.'),
-  P('b10','Ramune','Naranja 🍊, melón 🍈, fresa 🍓, yogurt, lichi',70,'bebidas',['nuevo'],true,'https://i.ibb.co/KCMKvr3/ramune.jpg','🍾','La bebida con canica 🔵 Refrescante y divertida. Elige tu sabor en la nota.'),
+  P('b10','Ramune','Naranja 🍊, melón 🍈, fresa 🍓, yogurt, lichi',70,'bebidas',['nuevo'],true,'img/ramune.jpg','🍾','La bebida con canica 🔵 Refrescante y divertida. Elige tu sabor en la nota.'),
   P('b11','Malteada de café','Binggrae · 200 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/NdYshcWV/malteada-cafe.jpg','☕','Malteada Binggrae sabor café ☕ Para los amantes del café.'),
   P('b12','Té de durazno','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/MDWxz58J/te-durazno.jpg','🍑','Té helado de durazno 🍑 Dulce y refrescante.'),
   P('b13','Té de café sabor vainilla','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/pr3SBs9B/te-cafe-vainilla.jpg','☕','Té de café con toque de vainilla ☕ Suave y aromático.'),
@@ -645,6 +661,19 @@ const PRODUCTS = [
   P('b22','Café riquísimo con 20 sobres','Caja · 20 sobres',250,'bebidas',['popular'],true,'https://i.ibb.co/zTwx9JTN/cafe-20-sobres-1.jpg','☕','Café coreano en sobres ☕ 20 unidades para disfrutar cuando quieras.'),
   P('b23','Té sabor café americano','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/t00QJym/te-cafe-americano.jpg','☕','Té con sabor a café americano ☕ Suave y aromático.'),
   P('b24','Café premium 20 sobres','Caja · 20 sobres',250,'bebidas',['nuevo'],false,'https://i.ibb.co/1GdxP4Jp/cafe-20-sobres-2.jpg','☕','Café coreano premium en sobres ☕ 20 unidades.'),
+  // ✦ NUEVOS — BEBIDAS
+  P('n2','Bublee MilkTea de azúcar','Brown Sugar · 350 g',60,'bebidas',['nuevo'],false,IMG.n_bub_azucar,'🧋','Milk tea con azúcar morena y perlas de tapioca 🧋 Dulce y cremoso.'),
+  P('n3','Bublee MilkTea de lichi y granada','Lady Boba · 320 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_lichi,'🧋','Milk tea de lichi con granada 🍈 Frutal y refrescante, con perlas.'),
+  P('n4','Bublee MilkTea de pera con melón','Lady Boba · 320 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_pera,'🧋','Milk tea de pera con melón 🍐 Suave, dulce y con perlas.'),
+  P('n5','Coconut de nata de coco con fresa','Jans · 290 ml',65,'bebidas',['nuevo'],false,IMG.n_coconut,'🥥','Bebida de fresa con trocitos de nata de coco 🍓🥥 Se bebe y se mastica.'),
+  P('n7','Té de caramelo','Cantabile · 230 ml',55,'bebidas',['nuevo'],false,IMG.n_te_caramelo,'🍮','Té helado sabor caramelo 🍮 Dulce y suave.'),
+  P('n8','Té de manzana','Cantabile Apple Ade · 230 ml',55,'bebidas',['nuevo'],false,IMG.n_te_manzana,'🍏','Apple Ade 🍏 Refrescante y con un toque ácido.'),
+  P('n10','Bublee MilkTea clásica','Lady Boba · 315 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_clasica,'🧋','El milk tea clásico con perlas de tapioca 🧋 Cremoso y reconfortante.'),
+  P('n11','Bublee MilkTea de fresa','Rico · 350 g',60,'bebidas',['nuevo'],false,IMG.n_bub_fresa,'🧋','Milk tea de fresa con perlas 🍓 Rosadito y dulce.'),
+  P('n12','Bublee MilkTea de Matcha','Rico · 350 g',60,'bebidas',['nuevo'],false,IMG.n_bub_matcha,'🍵','Milk tea de matcha con perlas 🍵 Té verde cremoso.'),
+  P('n13','Bublee MilkTea de Taro','Rico · 350 g',60,'bebidas',['nuevo'],false,IMG.n_bub_taro,'💜','Milk tea de taro con perlas 💜 Cremoso y violeta.'),
+  P('n16','Té de fresa','Cantabile Strawberry Ade · 230 ml',55,'bebidas',['nuevo'],false,'https://i.ibb.co/3mz8FRFW/te-fresa.jpg','🍓','Strawberry Ade 🍓 Dulce y rosadito.'),
+  P('n20','Bublee MilkTea de Taro','Lady Boba · 315 ml',60,'bebidas',['nuevo'],false,IMG.n_bub_taro_lady,'💜','Milk tea de taro versión Lady Boba 💜 Con perlas de tapioca.'),
   // 🍪 GALLETAS
   P('g1','Bub rellena de chocolate azul','Sabor azúcar · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_azucar,'🍪','Galleta coreana con chocolate azul azucarado 💙 Viral en redes.'),
   P('g2','Bub sabor lichi','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_lichi,'🍪','Galleta rellena de lichi 🍈 Dulce y tropical.'),
@@ -654,19 +683,21 @@ const PRODUCTS = [
   P('g6','Bub sabor matcha','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_matcha,'🍪','Galleta rellena de matcha 🍵 Té verde auténtico.'),
   P('g7','Bub sabor taro','Rellena · 1 pieza',35,'galletas',['nuevo'],false,IMG.n_bub_taro,'🍪','Galleta rellena de taro 💜 Cremosa y violeta.'),
   P('g8','Pocky de fresa','Caja · palitos cubiertos',30,'galletas',['nuevo'],false,IMG.n_pockys,'🥢','Palitos de galleta con fresa 🥢 El clásico que nunca falla.'),
+  // ✦ NUEVOS — GALLETAS
+  P('n1','Glico Pocky','117 g · bolsa con 9 paquetes',145,'galletas',['nuevo'],false,IMG.n_pockys,'🥢','Palitos de galleta cubiertos 🥢 Bolsa con 9 paquetes para compartir.'),
   // 🍡 MOCHIS
   P('m1','Mochi de vainilla','1 pieza',35,'mochis',['nuevo'],true,IMG.mochi_vainilla,'🍦','Mochi suave relleno de vainilla 🍦 El favorito de la casa.'),
   P('m2','Mochi de mango','1 pieza',35,'mochis',['nuevo'],false,IMG.n_mochi_mango,'🥭','Mochi relleno de mango 🥭 Tropical y jugoso.'),
   P('m3','Mochi de fresa','1 pieza',35,'mochis',['nuevo'],false,IMG.fresa,'🍓','Mochi relleno de fresa 🍓 Dulce y rosadito.'),
   P('m4','Mochi surtido','Elige sabor en la nota',35,'mochis',['nuevo'],false,IMG.mochi,'🍡','¿No te decides? Elige tu sabor en la nota del pedido 🍡'),
+  // ✦ NUEVOS — MOCHIS
+  P('n14','Mochis de mango','Royal Family · 8 piezas · 80 g',80,'mochis',['nuevo'],false,IMG.n_mochi_mango,'🥭','Ocho mochis suaves sabor mango 🥭 Tropicales y jugosos.'),
   // 🍬 DULCES
   P('d1','Pepero original','Caja · palitos',35,'dulces',['nuevo'],false,IMG.palitos,'🥨','Palitos de galleta con chocolate 🥨 El snack coreano icónico.'),
   P('d2','Caramelos de coco','Bolsa',25,'dulces',['nuevo'],false,IMG.n_coconut,'🥥','Caramelos duros de coco 🥥 Dulces y aromáticos.'),
-  P('d3','Gomitas surtidas coreanas','Bolsa',30,'dulces',['nuevo'],false,'','🍬','Gomitas de fruta coreanas 🍬 Suaves y coloridas.'),
   // 🥔 PAPAS
   P('p1','Papas sabor hamburguesa','Bolsa',45,'papas',['nuevo'],false,IMG.burger,'🍔','Botana coreana sabor hamburguesa 🍔 Salada y adictiva.'),
-  P('p2','Snack ramen taco','Bolsa',45,'papas',['nuevo'],false,IMG.n_ramen_tacos,'🌮','Botana crujiente con sabor a ramen-taco 🌮 Crujiente y picantita.'),
-  P('p3','Honey Butter Chips','Bolsa',45,'papas',['nuevo'],false,'','🧈','Las famosas papas sabor miel y mantequilla 🧈 Dulces y saladas.')
+  P('p2','Snack ramen taco','Bolsa',45,'papas',['nuevo'],false,IMG.n_ramen_tacos,'🌮','Botana crujiente con sabor a ramen-taco 🌮 Crujiente y picantita.')
 ];
 
 /* ================= ESTADO ================= */
@@ -1152,6 +1183,35 @@ function applyContact(){
   $('#footPhone').textContent = STORE.displayPhone;
   $('#footWa').href = `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent('Hola, quiero hacer un pedido en Moon. ¿Me pueden apoyar?')}`;
 }
+/* ---- Música de fondo ---- */
+(function(){
+  const a = document.getElementById('bgm'), b = document.getElementById('soundBtn'), ic = document.getElementById('soundIcon');
+  if(!a || !b) return;
+  a.volume = 0.5;
+  let userMuted = false;
+  try{ userMuted = localStorage.getItem('moon_music') === 'off'; }catch(e){}
+  const ui = on => {
+    b.classList.toggle('off', !on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.setAttribute('aria-label', on ? 'Silenciar música' : 'Activar música');
+    ic.textContent = on ? 'volume_up' : 'volume_off';
+  };
+  const play = () => a.play().then(()=>ui(true)).catch(()=>ui(false));
+  const save = v => { try{ localStorage.setItem('moon_music', v); }catch(e){} };
+  b.addEventListener('click', ev=>{
+    ev.stopPropagation();
+    if(a.paused){ save('on'); userMuted = false; play(); }
+    else { a.pause(); save('off'); userMuted = true; ui(false); }
+  });
+  if(!userMuted){
+    play();
+    const first = () => { if(a.paused && !userMuted) play(); };
+    ['pointerdown','keydown','touchstart'].forEach(t=>document.addEventListener(t, first, {once:true, passive:true}));
+  }
+})();
+
+/* Quita del carrito guardado los productos que ya no existen */
+(function(){ let ch=false; Object.keys(cart).forEach(k=>{ if(!byId(parseKey(k)[0])){ delete cart[k]; ch=true; } }); if(ch) saveCart(); })();
+
 window.addEventListener('hashchange', route);
 applyContact();
 renderAll();
